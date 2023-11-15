@@ -24,7 +24,8 @@ I would also like the calculator to have the following features:
 #include<string>
 using namespace std;
 class cal{
-    float *p;
+    int size;
+    float sum=0;
  public:
  cal()
  {  cout<<endl<<endl;
@@ -50,8 +51,24 @@ class cal{
  void sub();
  void mul();
  void divi();
- void display();
 };
+void cal::add()
+{  
+   cout<<"HOW MANY NUMBERS YOU WANT TO ADD"<<endl;
+   cin>>size;
+   float *ptr=new float[size];
+   cout<<"ENTER "<<size<<" NUMBERS TO ADD :"<<endl;
+   for(int i=0;i<size;i++)
+   {
+    cin>>ptr[i];
+   }
+   for(int i=0;i<size;i++)
+   {
+    sum +=ptr[i];
+   }
+   cout<<"YOUR SUM IS = "<<sum<<endl<<endl;
+   }
+
 int main()
 {   cal obj;
     int n;
@@ -63,10 +80,11 @@ int main()
     cout<<"ENTER 4 : FOR QUIT"<<endl;
     cin>>n;
     switch (n)
-    {/*
+    {
     case 1:
-          add();
+          obj.add();
         break;
+        /*
     case 2:
          sub();
          break;
