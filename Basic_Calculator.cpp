@@ -1,4 +1,4 @@
-/*As a client, I would like to request a basic calculator application that can perform the following operations:
+ /* A basic calculator application that can perform the following operations:
 
 * Addition
 * Subtraction
@@ -8,10 +8,7 @@
 The calculator should be able to handle both integer and floating-point numbers. It should also be able to display the result of the calculation in a clear and easy-to-read format.
 
 Here are some additional requirements for the calculator:
-
 * The calculator should be easy to use and understand.
-* The calculator should be able to handle user input errors, such as entering an invalid operator or operand.
-* The calculator should be able to perform calculations with large numbers.
 
 I would also like the calculator to have the following features:
 
@@ -26,6 +23,9 @@ using namespace std;
 class cal{
     int size;
     float sum=0;
+    float subt=0;
+    float mult=1;
+    float divid=1;
  public:
  cal()
  {  cout<<endl<<endl;
@@ -69,7 +69,46 @@ void cal::add()
    cout<<"YOUR SUM IS = "<<sum<<endl<<endl;
    delete [] ptr;
    }
-
+void cal::sub()
+   {   
+    float *ptr = new float[2];
+    cout<<"ENTER TWO NUMBER : "<<endl;
+    for(int i=0;i<2;i++)
+    {
+        cin>>ptr[i];
+    }
+     subt=ptr[0]-ptr[1];
+     cout<<"DIFFERENCE IS "<<subt<<endl<<endl;
+     delete [] ptr;
+   }
+   void cal::mul()
+   {
+    cout<<"HOW MANY NUMBERS YOU WANT TO MULTIPLY :"<<endl;
+    cin>>size;
+    float *ptr=new float[size];
+    cout<<"ENTER "<<size<<" NUMBERS TO MULTIPLY :"<<endl;
+   for(int i=0;i<size;i++)
+   {
+    cin>>ptr[i];
+   }
+   for(int i=0;i<size;i++)
+   {
+   mult *=ptr[i];
+   }
+   cout<<"MULTIPLICATION IS : "<<mult<<endl<<endl;
+    delete [] ptr;
+   }
+   void cal::divi()
+   {
+    float *ptr=new float[2];
+    cout<<"ENTER THE VALUE OF DIVIDEND : "<<endl;
+    cin>>ptr[0];
+    cout<<"ENTER THE VALUE OF DIVISIOR : "<<endl;
+    cin>>ptr[1];
+    divid=ptr[0]/ptr[1];
+    cout<<"THE ANSWER IS : "<<divid<<endl<<endl;
+    delete [] ptr;
+   }
 int main()
 {   cal obj;
     int n;
@@ -78,28 +117,28 @@ int main()
     cout<<"ENTER 1 : FOR ADDITION"<<endl;
     cout<<"ENTER 2 : FOR SUBSTRACTION"<<endl;
     cout<<"ENTER 3 : FOR MULTIPLICATION"<<endl;
-    cout<<"ENTER 4 : FOR QUIT"<<endl;
+    cout<<"ENTER 4 : FOR DIVISION"<<endl;
+    cout<<"ENTER 5 : FOR EXIT"<<endl;
     cin>>n;
     switch (n)
     {
     case 1:
           obj.add();
         break;
-        /*
+        
     case 2:
-         sub();
-         break;
+         obj.sub();
+         break;        
      case 3:
-         mul();
+         obj.mul();
          break;
      case 4:
-         divi();
+         obj.divi();
          break;           
     default:
-     cout<<"ENTERED INVALID CHOICE";
+     cout<<"ENTERED INVALID CHOICE"<<endl<<endl;
      break;
-     */
     }
-    }while(n!=4);
+    }while(n!=5);
     return 0;
 }
