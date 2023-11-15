@@ -67,6 +67,7 @@ void cal::add()
     sum +=ptr[i];
    }
    cout<<"YOUR SUM IS = "<<sum<<endl<<endl;
+   delete [] ptr;
    }
 
 int main()
