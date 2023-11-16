@@ -4,17 +4,6 @@
 * Subtraction
 * Multiplication
 * Division
-
-The calculator should be able to handle both integer and floating-point numbers. It should also be able to display the result of the calculation in a clear and easy-to-read format.
-
-Here are some additional requirements for the calculator:
-* The calculator should be easy to use and understand.
-
-I would also like the calculator to have the following features:
-
-* A clear and concise user interface
-* The ability to save and load calculations
-* The ability to customize the calculator's appearance
 */
 #include<iostream>
 #include<ctime>
