@@ -19,6 +19,7 @@ I would also like the calculator to have the following features:
 #include<iostream>
 #include<ctime>
 #include<string>
+#include<fstream>
 using namespace std;
 class cal{
     int size;
@@ -67,7 +68,13 @@ void cal::add()
     sum +=ptr[i];
    }
    cout<<"YOUR SUM IS = "<<sum<<endl<<endl;
+   ofstream fout;
+   fout.open("basic_cal.txt",ios::app);
+   fout<<"USER HAS CHOOSEN ADD THIS TIME : "<<endl;
+   fout<<"Result of this time is : "<<sum<<endl;
+   fout.close();
    delete [] ptr;
+
    }
 void cal::sub()
    {   
@@ -79,6 +86,11 @@ void cal::sub()
     }
      subt=ptr[0]-ptr[1];
      cout<<"DIFFERENCE IS "<<subt<<endl<<endl;
+    ofstream fout;
+   fout.open("basic_cal.txt",ios::app);
+   fout<<"USER HAS CHOOSEN SUBSTRACTION THIS TIME : "<<endl;
+   fout<<"Result of this time is : "<<subt<<endl;
+   fout.close();
      delete [] ptr;
    }
    void cal::mul()
@@ -96,6 +108,11 @@ void cal::sub()
    mult *=ptr[i];
    }
    cout<<"MULTIPLICATION IS : "<<mult<<endl<<endl;
+    ofstream fout;
+   fout.open("basic_cal.txt",ios::app);
+   fout<<"USER HAS CHOOSEN MULTIPLICATION THIS TIME :"<<endl;
+   fout<<"Result of this time is : "<<mult<<endl;
+   fout.close();
     delete [] ptr;
    }
    void cal::divi()
@@ -107,6 +124,11 @@ void cal::sub()
     cin>>ptr[1];
     divid=ptr[0]/ptr[1];
     cout<<"THE ANSWER IS : "<<divid<<endl<<endl;
+     ofstream fout;
+   fout.open("basic_cal.txt",ios::app);
+   fout<<"USER HAS CHOOSEN DIVISION THIS TIME :"<<endl;
+   fout<<"Result of this time is : "<<divid<<endl;
+   fout.close();
     delete [] ptr;
    }
 int main()
@@ -140,5 +162,32 @@ int main()
      break;
     }
     }while(n!=5);
+    int a;
+    cout<<endl<<endl<<endl<<"IF YOU WANT TO SEE ALL HISTORY TILL NOW : PRESS 1 OTHERWISE PRESS 2"<<endl;
+     cin>>a;
+     if(a==1)
+     {  char ch;
+        cout<<"HISTORY IS ----"<<endl;
+        ifstream fin;
+        fin.open("basic_cal.txt",ios::in);
+        if(!fin)
+        {
+            cout<<"FILE NOT FOUND";
+        }
+        else
+        {
+        ch=fin.get();
+        while(!fin.eof())
+        {
+            cout<<ch;
+            ch=fin.get();
+        }
+        fin.close();
+     }
+     }
+     else
+     {
+        cout<<endl<<endl<<endl<<endl<<"THANK YOU"<<endl;
+     }
     return 0;
 }

@@ -1,0 +1,6 @@
+USER HAS CHOOSEN ADD THIS TIME : 
+Result of this time is : 21
+USER HAS CHOOSEN SUBSTRACTION THIS TIME : 
+Result of this time is : 49
+USER HAS CHOOSEN DIVISION THIS TIME :
+Result of this time is : 78
