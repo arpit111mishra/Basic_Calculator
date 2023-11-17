@@ -9,6 +9,7 @@
 #include<ctime>
 #include<string>
 #include<fstream>
+#include<iomanip>
 using namespace std;
 class cal{
     int size;
@@ -96,11 +97,11 @@ void cal::sub()
    {
    mult *=ptr[i];
    }
-   cout<<"MULTIPLICATION IS : "<<mult<<endl<<endl;
+   cout<<"MULTIPLICATION IS : "<<fixed<<setprecision(4)<<mult<<endl<<endl;
     ofstream fout;
    fout.open("basic_cal.txt",ios::app);
    fout<<"USER HAS CHOOSEN MULTIPLICATION THIS TIME :"<<endl;
-   fout<<"Result of this time is : "<<mult<<endl;
+   fout<<"Result of this time is : "<<fixed<<setprecision(4)<<mult<<endl;
    fout.close();
     delete [] ptr;
    }
